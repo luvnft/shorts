@@ -2,7 +2,7 @@ import React from 'react';
 import { useBlogContext } from '../DataCollectLayer';
 import EmbedShorts from '../components/EmbedShorts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown, faComments, faShare, faEllipsisH, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp, faThumbsDown, faMessage, faShare, faEllipsisH, faCircle } from '@fortawesome/free-solid-svg-icons';
 
 const FirstPage = () => {
   const { data, error, alert, showAlert } = useBlogContext();
@@ -10,9 +10,9 @@ const FirstPage = () => {
 
   return (
 
-    <div className="flex h-screen">
+    <div className="container">
 
-      <div className="w-1/5 bg-black">
+      <div className="fixed-content w-1/5 bg-black">
         <div className="text-white p-4 cursor-pointer">
           <span>YouTube</span>
         </div>
@@ -50,7 +50,7 @@ const FirstPage = () => {
         </div>
       </div>
 
-      <div className="w-4/5">
+      <div className="scrollable-content w-4/5">
         <EmbedShorts datas={data} />
 
         <div className="relative">
@@ -63,34 +63,37 @@ const FirstPage = () => {
           </div>
 
           <div className="controls-container absolute bottom-0 right-0 p-4 text-black">
-            <div className="flex items-center mb-2">
+            <div className="flex items-center flex-col mb-2">
               <FontAwesomeIcon icon={faThumbsUp} className="mr-2" />
-              <span>1萬</span>
+              <span className="mt-1">1萬</span>
             </div>
-            <div className="flex items-center mb-2">
+            <div className="flex items-center flex-col mb-2">
               <FontAwesomeIcon icon={faThumbsDown} className="mr-2" />
-              <span>不喜歡</span>
+              <span className="mt-1">不喜歡</span>
             </div>
-            <div className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faComments} className="mr-2" />
-              <span>留言</span>
+            <div className="flex items-center flex-col mb-2">
+              <FontAwesomeIcon icon={faMessage} className="mr-2" />
+              <span className="mt-1">留言</span>
             </div>
-            <div className="flex items-center mb-2">
+            <div className="flex items-center flex-col mb-2">
               <FontAwesomeIcon icon={faShare} className="mr-2" />
-              <span>分享</span>
+              <span className="mt-1">分享</span>
             </div>
-            <div className="flex items-center mb-2">
+            <div className="flex items-center flex-col mb-2">
               <FontAwesomeIcon icon={faEllipsisH} className="mr-2" />
-              <span>...</span>
+              <span className="mt-1"></span>
             </div>
-            <div className="flex items-center">
-              <FontAwesomeIcon icon={faVolumeUp} className="mr-2" />
-              <span>聲音</span>
+            <div className="flex items-center flex-col">
+              <div className="rounded-full bg-gray-400 w-10 h-10 flex items-center justify-center">
+                <FontAwesomeIcon icon={faCircle} className="text-white" />
+              </div>
+              <span className="mt-1"></span>
             </div>
           </div>
         </div>
 
       </div>
+
     </div>
   );
 }

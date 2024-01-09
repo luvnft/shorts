@@ -19,6 +19,12 @@ const DataCollectLayer = ({ children }) => {
         type: '',
     });
 
+    /**
+     * 如果有需要Show Alert 可以從這裡開始 :)
+     * @param {*} show 
+     * @param {*} msg 
+     * @param {*} type 
+     */
     const showAlert = (show = false, msg = '', type = '') => {
         setAlert({ show, msg, type });
     };
@@ -55,11 +61,14 @@ const DataCollectLayer = ({ children }) => {
     };
 
     useEffect(() => {
-        // getShortVideos(base_url, channel_Id, 2, youtube_Api_Key); 
+        // getShortVideos(base_url, channel_Id, 2, youtube_Api_Key); // 當使用到API時才開啟
         // console.log('videos:', datas);  
     }, []);
 
-    // 因為API KEY 配額滿了，所以先使用固定資料。
+    /**
+     * 因為API KEY 配額滿了，所以先使用固定資料。
+     * 1. 模擬loading 1 seconds
+     */
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);

@@ -36,6 +36,12 @@ npm install
 Starting the Application
 To launch the application in development mode, use the following command:
 
+```bash
 npm start
+```
 
 This will open the application in your default web browser, allowing you to explore and interact with it. Enjoy using the YouTube Shorts video app!
+
+
+If you want to know about my journey, feel free to check out my Notion notes at any time.
+Link：https://flawless-gallon-349.notion.site/01-07-Alion-631815148a0144c1b97f34f83437e688

@@ -1,6 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown, faComments, faShare, faEllipsisH, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes, faThumbsUp, faThumbsDown, faComments, faShare, faEllipsisH, faVolumeUp } from '@fortawesome/free-solid-svg-icons';
+
+const Sidebar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+            <button className="sidebar-toggle" onClick={toggleSidebar}>
+                <FontAwesomeIcon icon={isOpen ? faTimes : faBars} />
+            </button>
+            <div className="sidebar-content">
+                {/* Your sidebar content goes here */}
+            </div>
+        </div>
+    );
+};
 
 const EmbedShorts = ({ datas }) => {
     const [currentPlaying, setCurrentPlaying] = useState(null);
@@ -79,7 +98,6 @@ const EmbedShorts = ({ datas }) => {
 
                 const elementCenter = (rect.top + rect.bottom) / 2;
 
-                /* if (rect.top >= 0 && rect.bottom <= window.innerHeight) { */
                 if (elementCenter >= 0 && elementCenter <= window.innerHeight) {
                     playerElements[i].playVideo();
                     if (currentPlaying !== i) {
@@ -98,6 +116,7 @@ const EmbedShorts = ({ datas }) => {
 
     return (
         <div>
+            <Sidebar />
             {datas.map((data, index) => {
                 return (
                     <div key={index} id={`player-${index}`} className="video-container relative"></div>

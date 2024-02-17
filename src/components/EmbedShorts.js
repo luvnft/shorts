@@ -59,18 +59,22 @@ const EmbedShorts = ({ datas }) => {
     /**
      * 初始化 YouTube 播放器
      */
-    const initYouTubePlayers = () => {
-        playerRefs.current = datas.map((data, index) => {
-            return new window.YT.Player(`player-${index}`, {
-                height: '800',
-                width: '450',
-                videoId: data.videoId,
-                events: {
-                    onReady: (event) => event.target.pauseVideo(),
-                },
-            });
-        });
-    };
+    const initYouTubePlayers = () =&gt; {
+  playerRefs.current = datas.map((data, index) =&gt; {
+    return new window.YT.Player(`player-${index}`, {
+      height: '100%',
+      width: '100%',
+      videoId: data.videoId,
+      playerVars: {
+        // Disable autoplay on mobile devices
+        autoplay: 0,
+      },
+      events: {
+        onReady: (event) =&gt; event.target.pauseVideo(),
+      },
+    });
+  });
+};
 
     /**
      * 1. 獲取第一個影片元素的DOM節點

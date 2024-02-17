@@ -64,8 +64,8 @@ const EmbedShorts = ({ datas }) => {
     const initYouTubePlayers = () => {
         playerRefs.current = datas.map((data, index) => {
             return new window.YT.Player(`player-${index}`, {
-                height: '100%',
-                width: '100%',
+                height: '360px',
+                width: '640px',
                 videoId: data?.videoId,
                 playerVars: {
                     autoplay: 0,

@@ -33,9 +33,9 @@ const EmbedShorts = ({ datas }) => {
     }, []);
 
     /**
-     * isApiLoaded 判斷是否已加載成功
-     * 1. 如果 YouTube API 已加載，初始化播放器
-     * 2. 增加滾動的事件監聽
+"isApiLoaded Determine whether loading is successful
+1. If the YouTube API has been loaded, initialize the player
+2. Add scrolling event listener"
      */
     useEffect(() => {
         if (isApiLoaded) {
@@ -77,10 +77,10 @@ const EmbedShorts = ({ datas }) => {
 };
 
     /**
-     * 1. 獲取第一個影片元素的DOM節點
-     * 2. 獲取第一個影片元素的矩形區域信息（包括位置和尺寸）
-     * 3. 計算影片元素的中心位置（相對於視窗）
-     * 4. 計算需要滾動的距離，使影片元素的中心位於視窗的中央位置
+     * 1. Obtain the DOM node of the first video element.
+       2. Get the rectangular area information (including position and size) of the first video element.
+       3. Calculate the center position of the video element (relative to the viewport).
+       4. Calculate the distance needed to scroll to center the video element within the viewport.
      */
     const scrollToFirstVideo = () => {
         if (datas && datas.length > 0) {
